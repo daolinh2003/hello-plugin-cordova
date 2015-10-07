@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.cordova.hello"
+    version="1.0.0">
+    
+    <name>hello</name>
+    
+    <description>
+      &lt;p&gt;This is hello plugin description!&lt;/p&gt;
+    </description>
+
+    <asset src="www/js/hello.js" target="js/hello.js" />
+  
+    <js-module src="www/js/hello.js" name="hello">
+        <clobbers target="hello" />
+    </js-module>
+        
+<!--
+    <platform name="android">        
+        <config-file target="res/xml/config.xml" parent="/*">
+          <access origin="https://oauth.io" />
+        </config-file>
+    </platform>
+-->
+
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+          <feature name="Hello">
+            <param name="android-package" value="com.example.plugin.Hello"/>
+          </feature>
+        </config-file>
+
+        <source-file src="src/android/hello.java" target-dir="src/com/example/plugin/"/>
+    </platform>
+    
+<!--
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+          <access origin="https://oauth.io" />
+        </config-file>
+    </platform>
+-->
+
+    <engines>
+      <engine name="cordova" version=">=3.0.0" />
+    </engines>
+</plugin>
